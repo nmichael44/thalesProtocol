@@ -1,2 +1,2 @@
-# thalesServer
-Functional programing using Cats Effect 3.
+# thalesProtocol
+The http protocol for thalesServer!
