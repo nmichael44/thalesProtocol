@@ -1,11 +1,10 @@
 import smithy4s.codegen.Smithy4sCodegenPlugin
 
-val scalaVer = "3.7.4"
+val scalaVer = "3.8.3"
 
 val catsVersion = "2.13.0"
 
-val log4catsSlf4jVersion = "2.7.1"
-val alloyCoreVersion = "0.3.36"
+val alloyCoreVersion = "0.3.38"
 
 ThisBuild / organization := "com.neo"
 ThisBuild / version := "0.1.0-SNAPSHOT"
