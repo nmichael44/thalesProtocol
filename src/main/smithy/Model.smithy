@@ -42,6 +42,11 @@ list RoleIdList {
 }
 
 @vector
+list RoleIdListEO {
+    member: RoleId
+}
+
+@vector
 list UserSessionList {
     member: UserSession
 }

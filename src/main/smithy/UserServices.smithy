@@ -17,7 +17,9 @@ service UserServices {
                  ResetMyPassword
                  CheckResetUserPasswordToken
                  FetchAllLiveSessions
-                 SetMustResetUserPassword]
+                 SetMustResetUserPassword
+                 FetchUserRoleIds
+                 UpdateUserRolesById]
 }
 
 @input
@@ -155,4 +157,41 @@ structure SetMustResetUserPasswordInput {
 
     @required
     mustResetPassword: Boolean
+}
+
+@readonly
+@http(method: "POST", uri: "/api/fetchUserRoleIds", code: 200)
+operation FetchUserRoleIds {
+    input: FetchUserRoleIdsInput
+    output: FetchUserRoleIdsOutput
+    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint]
+}
+
+structure FetchUserRoleIdsInput {
+    @required
+    userIds: UserIdList
+}
+
+map UserIdToRolesMap {
+    key: String
+    value: RoleIdListEO
+}
+
+structure FetchUserRoleIdsOutput {
+    @required
+    userIdToRoleIds: UserIdToRolesMap
+}
+
+@http(method: "POST", uri: "/api/updateUserRolesById", code: 200)
+operation UpdateUserRolesById {
+    input: UpdateUserRolesByIdInput
+    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, UserNotFound, RoleNotFound]
+}
+
+structure UpdateUserRolesByIdInput {
+    @required
+    userId: UserId
+
+    @required
+    roleIds: RoleIdListEO
 }
