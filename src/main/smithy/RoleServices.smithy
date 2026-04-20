@@ -102,7 +102,7 @@ structure FetchAllRolesOutput {
 operation FetchRolesPermissionsById {
     input: FetchRolesPermissionsByIdInput
     output: FetchRolesPermissionsByIdOutput
-    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint]
+    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, RoleNotFound]
 }
 
 @input

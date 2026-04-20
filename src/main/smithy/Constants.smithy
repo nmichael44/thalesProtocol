@@ -88,14 +88,14 @@ structure UserNotFound with [NotFoundCode] {
 
 @documentation("The requested user has been disabled.")
 @error("client")
-structure UserIsDisabled with [LockedCode] {
+structure UserIsDisabled with [ForbiddenCode] {
     @required
     message: String
 }
 
 @documentation("The user must reset their password before proceeding.")
 @error("client")
-structure UserMustResetPassword with [LockedCode] {
+structure UserMustResetPassword with [ForbiddenCode] {
     @required
     message: String
 }
