@@ -123,9 +123,9 @@ structure DuplicateRoleName with [ConflictCode] {
 
 @documentation("The given roleId was not found in the database.")
 @error("client")
-structure RoleNotFound with [NotFoundCode] {
+structure RoleIdsNotFound with [NotFoundCode] {
     @required
-    message: String
+    roleIds: RoleIdList
 }
 
 @documentation("The given role has been given to users and thus cannot be deleted.")
@@ -154,4 +154,11 @@ structure TooManyLoginAttempts with [TooManyRequestsCode] {
 structure InvalidOrMissingResetPasswordToken with [GoneCode] {
     @required
     message: String
+}
+
+@documentation("The provided role IDs contained duplicates.")
+@error("client")
+structure DuplicateRoleIds with [BadRequestCode] {
+    @required
+    roleIds: RoleIdList
 }

@@ -185,7 +185,7 @@ structure FetchUserRoleIdsOutput {
 @http(method: "POST", uri: "/api/updateUserRolesById", code: 200)
 operation UpdateUserRolesById {
     input: UpdateUserRolesByIdInput
-    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, UserNotFound, RoleNotFound]
+    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, UserNotFound, RoleIdsNotFound, DuplicateRoleIds]
 }
 
 structure UpdateUserRolesByIdInput {

@@ -47,7 +47,7 @@ structure DeleteRoleByIdInput {
 @http(method: "POST", uri: "/api/deleteRoleId/{roleId}", code: 200)
 operation DeleteRoleById {
     input: DeleteRoleByIdInput
-    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, RoleNotFound, RoleHasUsers]
+    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, RoleIdsNotFound, RoleHasUsers]
 }
 
 @http(method: "POST", uri: "/api/fetchRoles", code: 200)
@@ -102,7 +102,7 @@ structure FetchAllRolesOutput {
 operation FetchRolesPermissionsById {
     input: FetchRolesPermissionsByIdInput
     output: FetchRolesPermissionsByIdOutput
-    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, RoleNotFound]
+    errors: [UserIsUnAuthenticated, UserForbiddenFromCallingEntryPoint, RoleIdsNotFound]
 }
 
 @input
