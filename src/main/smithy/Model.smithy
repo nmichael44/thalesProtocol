@@ -2,7 +2,7 @@ $version: "2.0"
 
 namespace app.entrypoints.smithy
 
-use app.model#javaInstant
+use app.model#JavaInstant
 use app.model#nonEmptyVecSmithy
 use smithy4s.meta#vector
 
@@ -62,7 +62,7 @@ structure RoleInDb {
     createdBy: UserId
 
     @required
-    creationTime: javaInstant
+    creationTime: JavaInstant
 }
 
 structure Role {
@@ -98,7 +98,7 @@ structure UserInDb {
     phone: String
 
     @required
-    creationTime: javaInstant,
+    creationTime: JavaInstant,
 
     @required
     hashedPassword: HashedUserPassword
@@ -107,7 +107,7 @@ structure UserInDb {
     mustResetPassword: Boolean
 
     @required
-    userPasswordUpdateTime: javaInstant
+    userPasswordUpdateTime: JavaInstant
 
     @required
     enabled: Boolean
@@ -133,7 +133,7 @@ structure User {
     phone: String
 
     @required
-    creationTime: javaInstant
+    creationTime: JavaInstant
 
     @required
     password: UserPassword
@@ -142,7 +142,7 @@ structure User {
     mustResetPassword: Boolean
 
     @required
-    userPasswordUpdateTime: javaInstant
+    userPasswordUpdateTime: JavaInstant
 
     @required
     enabled: Boolean
@@ -156,5 +156,5 @@ structure UserSession {
     userId: UserId
 
     @required
-    lastAccess: javaInstant
+    lastAccess: JavaInstant
 }
