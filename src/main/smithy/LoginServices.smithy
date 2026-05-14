@@ -9,7 +9,8 @@ use smithy.api#http
 service LoginServices {
     version: "1.0.0"
     operations: [Login
-                 ResetUserPassword]
+                 ResetUserPassword
+                 InitiateRecoveryOfUserPassword]
 }
 
 @http(method: "POST", uri: "/login", code: 200)
@@ -49,4 +50,14 @@ structure ResetUserPasswordInput {
 
     @required
     newPassword: UserPassword
+}
+
+@http(method: "POST", uri: "/initiateRecoveryOfUserPassword", code: 200)
+operation InitiateRecoveryOfUserPassword {
+    input: InitiateRecoveryOfUserPasswordInput
+}
+
+structure InitiateRecoveryOfUserPasswordInput {
+    @required
+    loginName: LoginName
 }
